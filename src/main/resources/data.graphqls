@@ -1,0 +1,57 @@
+schema{
+	query: Query
+}
+
+type Query{
+	mahasiswa(fakultas: String, kodeProdi: Int, jenjang: String, ts: Int, status: String, statusSimplified: String) : [Mhs]
+	mahasiswaLulusan(fakultas: String, kodeProdi: Int, jenjang: String, tahunLulus: Int, tahunMasuk: Int) : [Lulusan]
+	mahasiswaBaru(fakultas: String, kodeProdi: Int, jenjang: String) : [Maba]
+
+	pustakawan(jenjang: String) : [Pustakawan]
+
+	jabatanDosen(kodeProdi: Int, fakultas: String, jabatan: String): [JabatanFungsionalDosen]
+	dosen(kodeProdi: Int, fakultas: String, pendidikanTerakhir: String, isOut: Int) : [Dosen]
+	bebanKerjaDosen(kodeProdi: Int, fakultas: String, kategoriKegiatan: String, tahun: Int) : [BebanKerjaDosen]
+	pengabdianDosen(kodeProdi: Int, fakultas: String, tahun: Int) : [Dosen]
+	penelitianDosen(kodeProdi: Int, fakultas: String, tahun: Int) : [Dosen]
+	ipDosen(kodeProdi: Int, fakultas: String, tahunAjaran: Int) : [Ipd]
+}
+
+type Ipd{
+	rataIpd: Float
+}
+
+type BebanKerjaDosen{
+	rataBebanKerjaDosen: Float
+}
+
+type Dosen{
+	jumlahDosen: Int
+}
+
+type JabatanFungsionalDosen{
+	jabatanFungsional: String
+	jenisKelamin: String
+	jumlahDosen: Int
+}
+
+type Mhs{
+	jumlahMhs: Int
+}
+
+type Lulusan{
+	rataLamaStudi: Float
+	rataIpk: Float
+	jumlahLulusan: Int
+	maxIpk: Float
+	minIpk: Float
+}
+
+type Maba{
+	jumlahMaba: Int
+}
+
+type Pustakawan{
+	jenjangTerakhir: String
+	jumlahPustakawan: Int
+}

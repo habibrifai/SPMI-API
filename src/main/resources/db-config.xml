@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!--  DB DATA API -->
+
+	<bean id="dataApiHikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="poolName" value="dataApiPool" />
+		<property name="connectionTestQuery" value="SELECT 1" />
+		<property name="dataSourceClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDataSource" />
+		<property name="maximumPoolSize" value="10" />
+		<property name="idleTimeout" value="10000" />
+		<property name="dataSourceProperties">
+			<props>
+				<prop key="url">jdbc:sqlserver://olap.its.ac.id:1433;databaseName=data_api;</prop>
+				<prop key="user"></prop>
+				<prop key="password"></prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="dataApiDataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<constructor-arg ref="dataApiHikariConfig" />
+	</bean>
+
+</beans>

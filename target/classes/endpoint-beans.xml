@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<import resource="classpath:data-beans.xml"/>
+	
+	<bean id="pustakawanEndpoint" class="id.its.api.spmi.endpoint.PustakawanEndpoint">
+		<property name="pustakawanDao" ref="pustakawanDao"></property>
+	</bean>
+	
+	<bean id="dosenEndpoint" class="id.its.api.spmi.endpoint.DosenEndpoint">
+		<property name="dosenDao" ref="dosenDao"></property>
+	</bean>
+	
+	<bean id="mahasiswaEndpoint" class="id.its.api.spmi.endpoint.MahasiswaEndpoint">
+		<property name="mahasiswaDao" ref="mahasiswaDao"></property>
+	</bean>
+	
+</beans>
