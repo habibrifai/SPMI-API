@@ -8,7 +8,7 @@
   
   <properties>
 	<sqljdbc.version>4.2</sqljdbc.version>
-	<spring.version>3.0.7.RELEASE</spring.version>
+	<spring.version>3.2.18.RELEASE</spring.version>
 	<jdk.version>1.8</jdk.version>
 	<hikaricp.version>2.4.7</hikaricp.version>
 	<cxf.version>2.7.16</cxf.version>
